@@ -7,7 +7,7 @@ class apiUsuarios {
     function getAll() {
         $usuario = new Usuario();
         $usuarios = array();
-        $usuarios["usuarios"] = array();
+        //$usuarios["usuarios"] = array();
 
         $res = $usuario->obtenerUsuarios();
         if ($res->rowCount()) {
@@ -18,7 +18,8 @@ class apiUsuarios {
                     'mail' => $row['email'],
                     'dni' => $row['dni']
                 );
-                array_push($usuarios['usuarios'], $item);
+                //array_push($usuarios['usuarios'], $item);
+                $usuarios[] = $item;
             }
             #$this->printJson($usuarios);
             $retorno = json_encode($usuarios);

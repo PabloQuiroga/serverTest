@@ -3,23 +3,18 @@
 include_once '../api/apiUsuarios.php';
 $api = new apiUsuarios();
 
-$resultado = $api->getAll();
-
 
 function getAll() {
-    global $resultado;
+    global $api;
     
-    //$listado = array();
-    $lista = json_decode($resultado);
+    $resultado = $api->getAll();
+    
+    $lista = json_decode($resultado, true);
     foreach ($lista as $row){
-        echo '<pre>';
+        //echo $row['mail'] . '<br>';
         print_r($row);
-        echo '</pre>';
+        echo '<br>';
     }
-    
-//    echo '<pre>';
-//    print_r($resultado);
-//    echo '</pre>';
 }
 
 function getMail($mail){
@@ -27,7 +22,4 @@ function getMail($mail){
 
     $user = $api->getByMail($mail);
     return $user;
-//    echo '<pre>';
-//    print_r($user);
-//    echo '</pre>';
 }

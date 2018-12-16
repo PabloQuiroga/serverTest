@@ -1,13 +1,9 @@
 <?php
 
-include_once './apiUsuarios.php';
+include_once '../api/apiUsuarios.php';
 $api = new apiUsuarios();
 
-if(isset($_POST['nombre']) 
-        && isset($_POST['apellido']) 
-        && isset($_POST['email']) 
-        && isset($_POST['documento']) 
-        && isset($_POST['password'])){
+if( isset($_POST['email']) && isset($_POST['password'])){
     
     $item = array(
         'nombre'=>$_POST['nombre'],
